@@ -4,4 +4,4 @@ Training project to write and run a first DAG using LocalExecutor and a PostgreS
 
 ## DAG view from airflow web server
 
-![alt](ariflow.PNG)
+![alt](airflow.PNG)
