@@ -1,5 +1,9 @@
 # Creation et alimentation d'un data warehouse en utilisant Airflow 
-Configuration de airflow : 
+
+Ce projet a pour objectif de monter en compétences sur la techno Airflow. Pour ce faire, l'hyptohèse de création d'un dataware house a été retenue. L'objectif est de construire un worflow permettant d'alimenter le data warehouse créée afin d'analyser les données.
+Les données sont un jeu de données factice issu d'une activité de vente de produits à l'internationnal.
+
+## Configuration de airflow : 
 - LocalExecutor
 - PostrgreSql MetaDabase
 - PostreSql pour le data warehouse
