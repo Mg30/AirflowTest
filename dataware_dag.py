@@ -12,9 +12,10 @@ DAG_DEFAULT_ARGS = {
     'retry_delay': timedelta(minutes=1)
 }
 
-BASE_DIR_PYTHON_SCRIPTS = '/mnt/c/Users/Matt/Desktop/Projet_perso/Airflow'
-BASE_DIR = '/mnt/c/Users/Matt/Desktop/source'
-BASE_DIR_TRANSFORMED = '/mnt/c/Users/Matt/Desktop/transformed'
+BASE_DIR_PYTHON_SCRIPTS = ''
+BASE_DIR = ''
+BASE_DIR_TRANSFORMED = ''
+CREATE_TABLES = ''
 FILES = ['dim_produits.csv','dim_clients.csv','dim_employes.csv','fact_orders.csv']
 with DAG('dataware_v1', start_date=datetime(2019, 7, 22), schedule_interval='@daily', default_args=DAG_DEFAULT_ARGS, catchup=False) as dag:
 
@@ -25,7 +26,7 @@ with DAG('dataware_v1', start_date=datetime(2019, 7, 22), schedule_interval='@da
     tamp_task_2 = DummyOperator(task_id='dumm_2')
 
     creating_tables_task = BashOperator(task_id='creating_tables_task',
-                                        bash_command='python3 /mnt/c/Users/Matt/Desktop/Projet_perso/Airflow/create_tables.py')
+                                        bash_command=CREATE_TABLES)
 
     transforming_tasks = [BashOperator(task_id='transforming_task_{}'.format(f),
                                        bash_command='python3 {}'.format(os.path.join(BASE_DIR_PYTHON_SCRIPTS, f))) for f in os.listdir(BASE_DIR_PYTHON_SCRIPTS) if 'transform' in f]
